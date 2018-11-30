@@ -5,7 +5,7 @@
  */
 package swe.pkg1;
 
-import java.util.*;
+
 
 public class SWE1 {
 
@@ -13,12 +13,11 @@ public class SWE1 {
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
-		int []arr= {1 , 2, 0, 4};
-		sortArray(arr);
+		
 	}
 
 	public static void sortArray(int []arr) {
-		String result = "";
+		
 		int temp, min;
 		// Selection Sort
 		for (int i = 0; i < arr.length; i++) {
@@ -32,6 +31,7 @@ public class SWE1 {
 			arr[i]=temp;
 
 		}
+		
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i]+" , ");
 		}
