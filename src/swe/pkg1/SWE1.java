@@ -18,7 +18,7 @@ public class SWE1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
     	while(true)
         {
             Scanner reader = new Scanner(System.in);
@@ -66,11 +66,11 @@ public class SWE1 {
                     "18-\tAll\n" +
                     "19-\tExit\n");
             int choice = reader.nextInt();
-            reader.close();
+            //reader.close();
             switch (choice)
             {
                 case 1:
-					Most_common(integers);
+			Most_common(integers);
                 	break;
                 case 2:
 
@@ -85,7 +85,7 @@ public class SWE1 {
 
                     break;
                 case 6:
-                    palindrome(chars);
+                    palindrome(integers);
                     break;
                 case 7:
 
@@ -115,7 +115,7 @@ public class SWE1 {
 
                     break;
                 case 16:
-
+                 getprime(arr);
                     break;
                 case 17:
 
@@ -123,18 +123,19 @@ public class SWE1 {
                 case 18:
                     palindrome(chars);
                     Most_common(integers);
+                     getprime(integers);
                     break;
                 case 19:
                     return;
             }
         }
     }
-    
+
     public static void Most_common(int [] array){
     	HashMap<Integer,Integer> hash = new HashMap<>();
     	for(int i=0;i<array.length;i++)
     	{
-    		
+
     		if(hash.containsKey(array[i]))
     		{
     			hash.put(array[i], hash.get(array[i]) + 1);
@@ -143,8 +144,8 @@ public class SWE1 {
     			hash.put(array[i], 1);
     		}
     	}
-    		
-    		
+
+
     		int max=0; int ind=0;
     	for (int i: hash.keySet())
     	{
@@ -155,9 +156,9 @@ public class SWE1 {
     		}
     	}
 		System.out.println(max);
-    	
+
 	}
-	
+
 	static boolean palindrome(char[] array)
     {
         for(int i = 0; i < array.length / 2; i++)
@@ -169,4 +170,23 @@ public class SWE1 {
         System.out.println("Palindrome.");
         return true;
     }
-}
+    static boolean checkprime (int n){
+        if( n < 2 )
+            return false;
+        for(int i = 2 ; i < n ; i++ )
+            if(n%i == 0)
+                return false;
+        return true;
+    }
+
+    static void getprime (int []arr){
+        System.out.print("The prime numbers are : ");
+        for(int i = 0 ; i < arr.length ; i++)
+            if (checkprime(arr[i]))
+                System.out.print(arr[i] + " , ");
+        System.out.println("\b\b\n");
+    }
+    }
+
+
+
