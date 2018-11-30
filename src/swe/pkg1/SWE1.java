@@ -70,8 +70,8 @@ public class SWE1 {
             switch (choice)
             {
                 case 1:
-			Most_common(integers);
-                	break;
+		    		Most_common(integers);
+                    break;
                 case 2:
 
                     break;
@@ -85,7 +85,7 @@ public class SWE1 {
 
                     break;
                 case 6:
-                    palindrome(integers);
+                    palindrome(chars);
                     break;
                 case 7:
 
@@ -116,7 +116,7 @@ public class SWE1 {
 
                     break;
                 case 16:
-                 getprime(arr);
+                 	getprime(integers);
                     break;
                 case 17:
 
@@ -124,7 +124,7 @@ public class SWE1 {
                 case 18:
                     palindrome(chars);
                     Most_common(integers);
-                     getprime(integers);
+                    getprime(integers);
                     break;
                 case 19:
                     return;
@@ -146,8 +146,7 @@ public class SWE1 {
     		}
     	}
 
-
-    		int max=0; int ind=0;
+    	int max=0; int ind=0;
     	for (int i: hash.keySet())
     	{
     		if(hash.get(i)>max)
