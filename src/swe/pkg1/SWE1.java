@@ -94,6 +94,7 @@ public class SWE1 {
 
                     break;
                 case 9:
+		     reverse(chars);
 
                     break;
                 case 10:
@@ -186,6 +187,16 @@ public class SWE1 {
                 System.out.print(arr[i] + " , ");
         System.out.println("\b\b\n");
     }
+
+
+
+	static void reverse(char [] data){
+        for (int i = data.length-1 ; i >=0 ; i--)
+        {
+                 System.out.print(data[i] + " ");
+        } 
+    	}
+
     }
 
 
