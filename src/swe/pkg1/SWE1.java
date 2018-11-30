@@ -70,8 +70,8 @@ public class SWE1 {
             switch (choice)
             {
                 case 1:
-			Most_common(integers);
-                	break;
+		    		Most_common(integers);
+                    break;
                 case 2:
             sortArray(integers);
                     break;
@@ -94,6 +94,7 @@ public class SWE1 {
 
                     break;
                 case 9:
+		     reverse(chars);
 
                     break;
                 case 10:
@@ -115,7 +116,7 @@ public class SWE1 {
 
                     break;
                 case 16:
-                 getprime(integers);
+                 	getprime(integers);
                     break;
                 case 17:
 
@@ -146,8 +147,7 @@ public class SWE1 {
     		}
     	}
 
-
-    		int max=0; int ind=0;
+    	int max=0; int ind=0;
     	for (int i: hash.keySet())
     	{
     		if(hash.get(i)>max)
@@ -187,6 +187,7 @@ public class SWE1 {
                 System.out.print(arr[i] + " , ");
         System.out.println("\b\b\n");
     }
+
     public static void sortArray(int[] arr) {
    	 
 		int temp, min;
@@ -211,6 +212,14 @@ public class SWE1 {
 	  }
 	  System.out.println("");
 	}
+
+	static void reverse(char [] data){
+        for (int i = data.length-1 ; i >=0 ; i--)
+        {
+                 System.out.print(data[i] + " ");
+        } 
+    	}
+
     }
 
 
