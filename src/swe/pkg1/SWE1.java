@@ -32,7 +32,7 @@ public class SWE1 {
             {
                 System.out.print(i + 1 + " element: ");
                 chars[i] = reader.next().charAt(0);
-            }
+            } 
 
             // for functions that only takes int array
             int[] integers = new int[size];
@@ -73,7 +73,7 @@ public class SWE1 {
 			Most_common(integers);
                 	break;
                 case 2:
-
+            sortArray(integers);
                     break;
                 case 3:
 
@@ -85,7 +85,7 @@ public class SWE1 {
 
                     break;
                 case 6:
-                    palindrome(integers);
+                    palindrome(chars);
                     break;
                 case 7:
 
@@ -115,7 +115,7 @@ public class SWE1 {
 
                     break;
                 case 16:
-                 getprime(arr);
+                 getprime(integers);
                     break;
                 case 17:
 
@@ -123,7 +123,8 @@ public class SWE1 {
                 case 18:
                     palindrome(chars);
                     Most_common(integers);
-                     getprime(integers);
+                    getprime(integers);
+                    sortArray(integers);
                     break;
                 case 19:
                     return;
@@ -186,6 +187,30 @@ public class SWE1 {
                 System.out.print(arr[i] + " , ");
         System.out.println("\b\b\n");
     }
+    public static void sortArray(int[] arr) {
+   	 
+		int temp, min;
+		//Selection Sort 
+		for (int i = 0; i < arr.length; i++) {
+			min = i;
+			for (int j = i; j < arr.length; j++) {
+				if (arr[j] < arr[min])
+					min = j;
+			}
+			temp = arr[min];
+			arr[min]=arr[i];
+			arr[i]=temp;
+
+		}
+		
+		System.out.print("The sorted array : ");
+	  for(int i=0 ; i<arr.length ; i++)
+	  {
+		  System.out.print(arr[i]+" , ");
+		  
+	  }
+	  System.out.println("");
+	}
     }
 
 
