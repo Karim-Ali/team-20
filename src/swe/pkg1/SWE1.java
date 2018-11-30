@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package swe.pkg1;
+//package swe.pkg1;
 
 import java.util.HashMap;
-
+import java.util.Scanner;
+import static java.util.Arrays.sort;
+import java.lang.*;
 /**
  *
  * @author Karim
@@ -18,11 +20,116 @@ public class SWE1 {
      */
     public static void main(String[] args) {
         
-    	int[] a= {1,3,2,4,2,3,11,2,3,4,1};
-    	Most_common(a);
-        
-    	
-    	// TODO code application logic here
+    	while(true)
+        {
+            Scanner reader = new Scanner(System.in);
+            System.out.print("Enter number of elements of array: ");
+            int size = reader.nextInt();
+            System.out.println("Enter array: ");
+
+            // for functions that require char array
+            char[] chars = new char[size];
+            for (int i = 0; i < size; i++)
+            {
+                System.out.print(i + 1 + " element: ");
+                chars[i] = reader.next().charAt(0);
+            }
+
+            // for functions that only takes int array
+            int[] integers = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                if (chars[i] >= '0' || chars[i] <= '9')
+                    integers[i] = chars[i] - '0';
+                else
+                    integers[i] = chars[i];
+            }
+
+            // Menu
+            System.out.println("Choose function:\n" +
+                    "1-\tMost repeated value\n" +
+                    "2-\tSort\n" +
+                    "3-\tShuffle\n" +
+                    "4-\tFind the largest prime\n" +
+                    "5-\tFind the smallest prime\n" +
+                    "6-\tCheck palindrome\n" +
+                    "7-\tCheck sorted\n" +
+                    "8-\tCount primes\n" +
+                    "9-\tReverse array\n" +
+                    "10-\tShift array\n" +
+                    "11-\tDistinct array\n" +
+                    "12-\tGet the maximum 3 numbers\n" +
+                    "13-\tGet the maximum 3 numbers\n" +
+                    "14-\tGet average\n" +
+                    "15-\tGet median\n" +
+                    "16-\tReturn only primes\n" +
+                    "17-\tZero if less than zero\n" +
+                    "18-\tAll\n" +
+                    "19-\tExit\n");
+            int choice = reader.nextInt();
+            reader.close();
+            switch (choice)
+            {
+                case 1:
+					Most_common(integers);
+                	break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+
+                    break;
+                case 6:
+                    palindrome(chars);
+                    break;
+                case 7:
+
+                    break;
+                case 8:
+
+                    break;
+                case 9:
+
+                    break;
+                case 10:
+
+                    break;
+                case 11:
+
+                    break;
+                case 12:
+                    max(integers);
+                    break;
+                case 13:
+
+                    break;
+                case 14:
+
+                    break;
+                case 15:
+
+                    break;
+                case 16:
+
+                    break;
+                case 17:
+
+                    break;
+                case 18:
+                    palindrome(chars);
+                    Most_common(integers);
+                    max(integers);
+                    break;
+                case 19:
+                    return;
+            }
+        }
     }
     
     public static void Most_common(int [] array){
@@ -51,5 +158,22 @@ public class SWE1 {
     	}
 		System.out.println(max);
     	
+	}
+	
+	static boolean palindrome(char[] array)
+    {
+        for(int i = 0; i < array.length / 2; i++)
+            if(array[i] != array[array.length - 1 - i])
+            {
+                System.out.println("Not Palindrome.");
+                return false;
+            }
+        System.out.println("Palindrome.");
+        return true;
+    }
+    public static void max(int []arr)
+    {
+        sort(arr);
+        System.out.print(arr[arr.length-1]+" "+arr[arr.length-2]+" "+arr[arr.length-3]);
     }
 }
