@@ -66,11 +66,11 @@ public class SWE1 {
                     "18-\tAll\n" +
                     "19-\tExit\n");
             int choice = reader.nextInt();
-            reader.close();
+            //reader.close();
             switch (choice)
             {
                 case 1:
-					Most_common(integers);
+			Most_common(integers);
                 	break;
                 case 2:
 
@@ -85,7 +85,7 @@ public class SWE1 {
 
                     break;
                 case 6:
-                    palindrome(chars);
+                    palindrome(integers);
                     break;
                 case 7:
 
@@ -123,7 +123,7 @@ public class SWE1 {
                 case 18:
                     palindrome(chars);
                     Most_common(integers);
-                     getprime(arr);
+                     getprime(integers);
                     break;
                 case 19:
                     return;
