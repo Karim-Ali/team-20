@@ -90,7 +90,7 @@ public class SWE1 {
 
                     break;
                 case 8:
-
+                    countprimes(integers);
                     break;
                 case 9:
                     reverse(chars);
@@ -130,13 +130,36 @@ public class SWE1 {
                     reverse(chars);
                     shift(integers, size);
                     avg_of_array(integers, size);
+                    countprimes(integers);
                     break;
                 case 19:
                     return;
             }
         }
     }
-
+public static boolean isprime(int number){
+        for(int i=2; i<number; i++){
+            if(number%i == 0){
+                return false; //number is divisible so its not prime
+            }
+        }
+        return true; //number is prime now
+    }
+public static int countprimes(int[]nums)
+    {
+        int count=0;
+        int z=nums.length;
+            
+            for(int i=0;i<z;i++)
+            {
+                if(isprime(nums[i]))
+                {
+                    count++;
+                    
+                }
+            }
+            return count;
+        }
     public static void get_median(int[] myArray) {
         int size = myArray.length;
         for (int i = 1, j; i < size; i++) {
