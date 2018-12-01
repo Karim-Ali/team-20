@@ -271,6 +271,20 @@ public class SWE1 {
         }
         System.out.println(" , " + mini);
     }
+	
+	
+	static void avg_of_array(int[] array, int size)
+    {
+        Scanner input2=new Scanner(System.in);
+        int count=0;
+        for (int i=0;i<size;i++) {
+
+            count += array[i];
+        }
+        System.out.println("the avarage = "+ new Double((count/size)));
+
+    }
 }
+
 
 
