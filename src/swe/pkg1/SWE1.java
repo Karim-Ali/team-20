@@ -42,12 +42,26 @@ public class SWE1 {
             }
 
             // Menu
-            System.out.println("Choose function:\n" + "1-\tMost repeated value\n" + "2-\tSort\n" + "3-\tShuffle\n"
-                    + "4-\tFind the largest prime\n" + "5-\tFind the smallest prime\n" + "6-\tCheck palindrome\n"
-                    + "7-\tCheck sorted\n" + "8-\tCount primes\n" + "9-\tReverse array\n" + "10-\tShift array\n"
-                    + "11-\tDistinct array\n" + "12-\tGet the maximum 3 numbers\n" + "13-\tGet the minimum 3 numbers\n"
-                    + "14-\tGet average\n" + "15-\tGet median\n" + "16-\tReturn only primes\n"
-                    + "17-\tZero if less than zero\n" + "18-\tAll\n" + "19-\tExit\n");
+            System.out.println("Choose function:\n" +
+                        "1-\tMost repeated value\n" +
+                        "2-\tSort\n" +
+                        "3-\tShuffle\n" +
+                        "4-\tFind the largest prime\n" +
+                        "5-\tFind the smallest prime\n" +
+                        "6-\tCheck palindrome\n" +
+                        "7-\tCheck sorted\n" +
+                        "8-\tCount primes\n" +
+                        "9-\tReverse array\n" +
+                        "10-\tShift array\n" +
+                        "11-\tDistinct array\n" +
+                        "12-\tGet the maximum 3 numbers\n" +
+                        "13-\tGet the minimum 3 numbers\n" +
+                        "14-\tGet average\n" +
+                        "15-\tGet median\n" +
+                        "16-\tReturn only primes\n" +
+                        "17-\tZero if less than zero\n" +
+                        "18-\tAll\n" +
+                        "19-\tExit\n");
             int choice = reader.nextInt();
             // reader.close();
             switch (choice) {
