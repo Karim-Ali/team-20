@@ -19,7 +19,7 @@ public class SWE1 {
      */
     public static void main(String[] args) {
 
-    	while(true)
+        while(true)
         {
             Scanner reader = new Scanner(System.in);
             System.out.print("Enter number of elements of array: ");
@@ -32,7 +32,7 @@ public class SWE1 {
             {
                 System.out.print(i + 1 + " element: ");
                 chars[i] = reader.next().charAt(0);
-            } 
+            }
 
             // for functions that only takes int array
             int[] integers = new int[size];
@@ -70,10 +70,10 @@ public class SWE1 {
             switch (choice)
             {
                 case 1:
-		    		Most_common(integers);
+                    Most_common(integers);
                     break;
                 case 2:
-            sortArray(integers);
+                    sortArray(integers);
                     break;
                 case 3:
 
@@ -94,7 +94,7 @@ public class SWE1 {
 
                     break;
                 case 9:
-		     reverse(chars);
+                    reverse(chars);
 
                     break;
                 case 10:
@@ -113,10 +113,10 @@ public class SWE1 {
 
                     break;
                 case 15:
-
+                    get_median(integers);
                     break;
                 case 16:
-                 	getprime(integers);
+                    getprime(integers);
                     break;
                 case 17:
 
@@ -126,41 +126,62 @@ public class SWE1 {
                     Most_common(integers);
                     getprime(integers);
                     sortArray(integers);
+		    get_median(integers);;
                     break;
                 case 19:
                     return;
             }
         }
     }
-
+    public static void get_median (int [] myArray) {
+        int size= myArray.length;
+        for (int i = 1, j; i < size; i++) {
+        int tmp = myArray [i];
+            for (j = i; j > 0 && tmp < myArray [j-1]; j--)
+                myArray [j] = myArray [j-1];
+            myArray [j] = tmp;
+        }
+        double median;
+        if (size%2==0)
+        {
+            double tmp;
+            tmp=myArray[(size/2)-1]+myArray[size/2];
+            median=(tmp/2.00);
+        }
+        else
+        {
+            median=myArray[(size-1)/2];
+        }
+        System.out.println(median);
+    }
     public static void Most_common(int [] array){
-    	HashMap<Integer,Integer> hash = new HashMap<>();
-    	for(int i=0;i<array.length;i++)
-    	{
+        HashMap<Integer,Integer> hash = new HashMap<>();
+        for(int i=0;i<array.length;i++)
+        {
 
-    		if(hash.containsKey(array[i]))
-    		{
-    			hash.put(array[i], hash.get(array[i]) + 1);
-    		}
-    		else {
-    			hash.put(array[i], 1);
-    		}
-    	}
+            if(hash.containsKey(array[i]))
+            {
+                hash.put(array[i], hash.get(array[i]) + 1);
+            }
+            else {
+                hash.put(array[i], 1);
+            }
+        }
 
-    	int max=0; int ind=0;
-    	for (int i: hash.keySet())
-    	{
-    		if(hash.get(i)>max)
-    		{
-    			ind=i;
-    			max=hash.get(i);
-    		}
-    	}
-		System.out.println(max);
+        int max=0; int ind=0;
+        for (int i: hash.keySet())
+        {
+            if(hash.get(i)>max)
+            {
+                ind=i;
+                max=hash.get(i);
+            }
+        }
+        System.out.println(max);
 
-	}
+    }
 
-	static boolean palindrome(char[] array)
+    static boolean palindrome(char[] array)
     {
         for(int i = 0; i < array.length / 2; i++)
             if(array[i] != array[array.length - 1 - i])
@@ -189,38 +210,37 @@ public class SWE1 {
     }
 
     public static void sortArray(int[] arr) {
-   	 
-		int temp, min;
-		//Selection Sort 
-		for (int i = 0; i < arr.length; i++) {
-			min = i;
-			for (int j = i; j < arr.length; j++) {
-				if (arr[j] < arr[min])
-					min = j;
-			}
-			temp = arr[min];
-			arr[min]=arr[i];
-			arr[i]=temp;
 
-		}
-		
-		System.out.print("The sorted array : ");
-	  for(int i=0 ; i<arr.length ; i++)
-	  {
-		  System.out.print(arr[i]+" , ");
-		  
-	  }
-	  System.out.println("");
-	}
+        int temp, min;
+        //Selection Sort
+        for (int i = 0; i < arr.length; i++) {
+            min = i;
+            for (int j = i; j < arr.length; j++) {
+                if (arr[j] < arr[min])
+                    min = j;
+            }
+            temp = arr[min];
+            arr[min]=arr[i];
+            arr[i]=temp;
 
-	static void reverse(char [] data){
-        for (int i = data.length-1 ; i >=0 ; i--)
+        }
+
+        System.out.print("The sorted array : ");
+        for(int i=0 ; i<arr.length ; i++)
         {
-                 System.out.print(data[i] + " ");
-        } 
-    	}
+            System.out.print(arr[i]+" , ");
 
+        }
+        System.out.println("");
     }
 
+    static void reverse(char [] data){
+        for (int i = data.length-1 ; i >=0 ; i--)
+        {
+            System.out.print(data[i] + " ");
+        }
+    }
+
+}
 
 
