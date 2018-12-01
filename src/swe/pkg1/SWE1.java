@@ -105,7 +105,7 @@ public class SWE1 {
                 getmin(integers);
                 break;
             case 14:
-
+                avg_of_array(integers, size);
                 break;
             case 15:
                 get_median(integers);
@@ -125,6 +125,7 @@ public class SWE1 {
                 getmin(integers);
                 reverse(chars);
                 shift(integers,size);
+                avg_of_array(integers, size);
                 break;
             case 19:
                 return;
@@ -260,6 +261,19 @@ public class SWE1 {
         }
         System.out.println(" , " + mini);
     }
+	
+	  static void avg_of_array(int[] array, int size)
+    {
+        Scanner input2=new Scanner(System.in);
+        int count=0;
+        for (int i=0;i<size;i++) {
+
+            count += array[i];
+        }
+        System.out.println("the avarage = "+ new Double((count/size)));
+
+    }
+
     public static void shift(int arr[] , int size){
         int temp=0;
         for(int i = size-1 ; i > 0 ;i--){
