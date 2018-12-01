@@ -130,6 +130,7 @@ public class SWE1 {
                     reverse(chars);
                     shift(integers, size);
                     avg_of_array(integers, size);
+                    countprimes(integers);
                     break;
                 case 19:
                     return;
