@@ -58,7 +58,7 @@ public class SWE1 {
                     "10-\tShift array\n" +
                     "11-\tDistinct array\n" +
                     "12-\tGet the maximum 3 numbers\n" +
-                    "13-\tGet the maximum 3 numbers\n" +
+                    "13-\tGet the minimum 3 numbers\n" +
                     "14-\tGet average\n" +
                     "15-\tGet median\n" +
                     "16-\tReturn only primes\n" +
@@ -107,7 +107,7 @@ public class SWE1 {
 
                     break;
                 case 13:
-
+                    getmin(integers);
                     break;
                 case 14:
 
@@ -241,6 +241,36 @@ public class SWE1 {
         }
     }
 
+    
+    static void getmin(int[] arr) {
+        int mini = arr[0], idx = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if (mini > arr[i]) {
+                mini = arr[i];
+                idx = i;
+            }
+        }
+        System.out.print("the Smallest 3 numbers are : " + mini);
+        arr[idx] = arr[arr.length - 1];
+        mini = arr[0];
+        idx = 0;
+        for (int i = 1; i < arr.length - 1; i++) {
+            if (mini > arr[i]) {
+                mini = arr[i];
+                idx = i;
+            }
+        }
+        System.out.print(" , " + mini);
+        arr[idx] = arr[arr.length - 2];
+        mini = arr[0];
+        idx = 0;
+        for (int i = 1; i < arr.length - 2; i++) {
+            if (mini > arr[i]) {
+                mini = arr[i];
+            }
+        }
+        System.out.println(" , " + mini);
+    }
 }
 
 
