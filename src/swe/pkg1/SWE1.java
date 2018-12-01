@@ -93,7 +93,7 @@ public class SWE1 {
                 reverse(chars);
                 break;
             case 10:
-
+                shift(integers,size);
                 break;
             case 11:
 
@@ -124,6 +124,7 @@ public class SWE1 {
                 get_median(integers);
                 getmin(integers);
                 reverse(chars);
+                shift(integers,size);
                 break;
             case 19:
                 return;
@@ -258,5 +259,15 @@ public class SWE1 {
             }
         }
         System.out.println(" , " + mini);
+    }
+    public static void shift(int arr[] , int size){
+        int temp=0;
+        for(int i = size-1 ; i > 0 ;i--){
+            temp = arr[i];
+            arr[i]= arr[i-1];
+            arr[i-1]= temp;
+        }
+        for(int i =0 ; i < arr.length;i++) 
+            System.out.println(arr[i]);   
     }
 }
