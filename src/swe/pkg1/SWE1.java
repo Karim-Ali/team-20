@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
+import static java.util.Arrays.sort;
+import java.lang.*;
 
 /**
  *
@@ -20,7 +22,6 @@ public class SWE1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
         while (true) {
             Scanner reader = new Scanner(System.in);
             System.out.print("Enter number of elements of array: ");
@@ -102,7 +103,7 @@ public class SWE1 {
                     Distinct(integers);
                     break;
                 case 12:
-
+                    max(integers);
                     break;
                 case 13:
                     getmin(integers);
@@ -122,6 +123,7 @@ public class SWE1 {
                 case 18:
                     palindrome(chars);
                     Most_common(integers);
+                    max(integers);
                     getprime(integers);
                     sortArray(integers);
                     get_median(integers);
@@ -137,6 +139,7 @@ public class SWE1 {
             }
         }
     }
+  
 public static boolean isprime(int number){
         for(int i=2; i<number; i++){
             if(number%i == 0){
@@ -341,4 +344,9 @@ public static int countprimes(int[]nums)
             System.out.print(add.get(i) + " ");
         }
     }
+     public static void max(int []arr)	
+     {
+        sort(arr);
+        System.out.print(arr[arr.length-1]+" "+arr[arr.length-2]+" "+arr[arr.length-3]);
+     }
 }
