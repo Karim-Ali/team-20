@@ -344,4 +344,9 @@ public static int countprimes(int[]nums)
             System.out.print(add.get(i) + " ");
         }
     }
+     public static void max(int []arr)	
+     {
+        sort(arr);
+        System.out.print(arr[arr.length-1]+" "+arr[arr.length-2]+" "+arr[arr.length-3]);
+     }
 }
