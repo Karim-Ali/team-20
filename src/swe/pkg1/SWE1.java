@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//package swe.pkg1;
+package swe.pkg1;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 import static java.util.Arrays.sort;
 import java.lang.*;
+
 /**
  *
  * @author Karim
@@ -19,9 +22,7 @@ public class SWE1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-    	while(true)
-        {
+        while (true) {
             Scanner reader = new Scanner(System.in);
             System.out.print("Enter number of elements of array: ");
             int size = reader.nextInt();
@@ -29,52 +30,50 @@ public class SWE1 {
 
             // for functions that require char array
             char[] chars = new char[size];
-            for (int i = 0; i < size; i++)
-            {
+            for (int i = 0; i < size; i++) {
                 System.out.print(i + 1 + " element: ");
                 chars[i] = reader.next().charAt(0);
             }
 
             // for functions that only takes int array
             int[] integers = new int[size];
-            for (int i = 0; i < size; i++)
-            {
-                if (chars[i] >= '0' || chars[i] <= '9')
+            for (int i = 0; i < size; i++) {
+                if (chars[i] >= '0' || chars[i] <= '9') {
                     integers[i] = chars[i] - '0';
-                else
+                } else {
                     integers[i] = chars[i];
+                }
             }
 
             // Menu
-            System.out.println("Choose function:\n" +
-                    "1-\tMost repeated value\n" +
-                    "2-\tSort\n" +
-                    "3-\tShuffle\n" +
-                    "4-\tFind the largest prime\n" +
-                    "5-\tFind the smallest prime\n" +
-                    "6-\tCheck palindrome\n" +
-                    "7-\tCheck sorted\n" +
-                    "8-\tCount primes\n" +
-                    "9-\tReverse array\n" +
-                    "10-\tShift array\n" +
-                    "11-\tDistinct array\n" +
-                    "12-\tGet the maximum 3 numbers\n" +
-                    "13-\tGet the maximum 3 numbers\n" +
-                    "14-\tGet average\n" +
-                    "15-\tGet median\n" +
-                    "16-\tReturn only primes\n" +
-                    "17-\tZero if less than zero\n" +
-                    "18-\tAll\n" +
-                    "19-\tExit\n");
+            System.out.println("Choose function:\n"
+                    + "1-\tMost repeated value\n"
+                    + "2-\tSort\n"
+                    + "3-\tShuffle\n"
+                    + "4-\tFind the largest prime\n"
+                    + "5-\tFind the smallest prime\n"
+                    + "6-\tCheck palindrome\n"
+                    + "7-\tCheck sorted\n"
+                    + "8-\tCount primes\n"
+                    + "9-\tReverse array\n"
+                    + "10-\tShift array\n"
+                    + "11-\tDistinct array\n"
+                    + "12-\tGet the maximum 3 numbers\n"
+                    + "13-\tGet the minimum 3 numbers\n"
+                    + "14-\tGet average\n"
+                    + "15-\tGet median\n"
+                    + "16-\tReturn only primes\n"
+                    + "17-\tZero if less than zero\n"
+                    + "18-\tAll\n"
+                    + "19-\tExit\n");
             int choice = reader.nextInt();
-            reader.close();
-            switch (choice)
-            {
+            // reader.close();
+            switch (choice) {
                 case 1:
-					Most_common(integers);
-                	break;
+                    Most_common(integers);
+                    break;
                 case 2:
-
+                    sortArray(integers);
                     break;
                 case 3:
 
@@ -92,31 +91,31 @@ public class SWE1 {
 
                     break;
                 case 8:
-
+                    countprimes(integers);
                     break;
                 case 9:
-
+                    reverse(chars);
                     break;
                 case 10:
-
+                    shift(integers, size);
                     break;
                 case 11:
-
+                    Distinct(integers);
                     break;
                 case 12:
                     max(integers);
                     break;
                 case 13:
-
+                    getmin(integers);
                     break;
                 case 14:
-
+                    avg_of_array(integers, size);
                     break;
                 case 15:
-
+                    get_median(integers);
                     break;
                 case 16:
-
+                    getprime(integers);
                     break;
                 case 17:
 
@@ -125,55 +124,224 @@ public class SWE1 {
                     palindrome(chars);
                     Most_common(integers);
                     max(integers);
+                    getprime(integers);
+                    sortArray(integers);
+                    get_median(integers);
+                    getmin(integers);
+                    Distinct(integers);
+                    reverse(chars);
+                    shift(integers, size);
+                    avg_of_array(integers, size);
+                    countprimes(integers);
                     break;
                 case 19:
                     return;
             }
         }
     }
-    
-    public static void Most_common(int [] array){
-    	HashMap<Integer,Integer> hash = new HashMap<>();
-    	for(int i=0;i<array.length;i++)
-    	{
-    		
-    		if(hash.containsKey(array[i]))
-    		{
-    			hash.put(array[i], hash.get(array[i]) + 1);
-    		}
-    		else {
-    			hash.put(array[i], 1);
-    		}
-    	}
-    		
-    		
-    		int max=0; int ind=0;
-    	for (int i: hash.keySet())
-    	{
-    		if(hash.get(i)>max)
-    		{
-    			ind=i;
-    			max=hash.get(i);
-    		}
-    	}
-		System.out.println(max);
-    	
-	}
-	
-	static boolean palindrome(char[] array)
+  
+public static boolean isprime(int number){
+        for(int i=2; i<number; i++){
+            if(number%i == 0){
+                return false; //number is divisible so its not prime
+            }
+        }
+        return true; //number is prime now
+    }
+public static int countprimes(int[]nums)
     {
-        for(int i = 0; i < array.length / 2; i++)
-            if(array[i] != array[array.length - 1 - i])
+        int count=0;
+        int z=nums.length;
+            
+            for(int i=0;i<z;i++)
             {
+                if(isprime(nums[i]))
+                {
+                    count++;
+                    
+                }
+            }
+            return count;
+        }
+    public static void get_median(int[] myArray) {
+        int size = myArray.length;
+        for (int i = 1, j; i < size; i++) {
+            int tmp = myArray[i];
+            for (j = i; j > 0 && tmp < myArray[j - 1]; j--) {
+                myArray[j] = myArray[j - 1];
+            }
+            myArray[j] = tmp;
+        }
+        double median;
+        if (size % 2 == 0) {
+            double tmp;
+            tmp = myArray[(size / 2) - 1] + myArray[size / 2];
+            median = (tmp / 2.00);
+        } else {
+            median = myArray[(size - 1) / 2];
+        }
+        System.out.println(median);
+    }
+
+    public static void Most_common(int[] array) {
+        HashMap<Integer, Integer> hash = new HashMap<>();
+        for (int i = 0; i < array.length; i++) {
+
+            if (hash.containsKey(array[i])) {
+                hash.put(array[i], hash.get(array[i]) + 1);
+            } else {
+                hash.put(array[i], 1);
+            }
+        }
+
+        int max = 0;
+        int ind = 0;
+        for (int i : hash.keySet()) {
+            if (hash.get(i) > max) {
+                ind = i;
+                max = hash.get(i);
+            }
+        }
+        System.out.println(max);
+
+    }
+
+    static boolean palindrome(char[] array) {
+        for (int i = 0; i < array.length / 2; i++) {
+            if (array[i] != array[array.length - 1 - i]) {
                 System.out.println("Not Palindrome.");
                 return false;
             }
+        }
         System.out.println("Palindrome.");
         return true;
     }
-    public static void max(int []arr)
-    {
-        sort(arr);
-        System.out.print(arr[arr.length-1]+" "+arr[arr.length-2]+" "+arr[arr.length-3]);
+
+    static boolean checkprime(int n) {
+        if (n < 2) {
+            return false;
+        }
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    static void getprime(int[] arr) {
+        System.out.print("The prime numbers are : ");
+        for (int i = 0; i < arr.length; i++) {
+            if (checkprime(arr[i])) {
+                System.out.print(arr[i] + " , ");
+            }
+        }
+        System.out.println("\b\b\n");
+    }
+
+    public static void sortArray(int[] arr) {
+
+        int temp, min;
+        // Selection Sort
+        for (int i = 0; i < arr.length; i++) {
+            min = i;
+            for (int j = i; j < arr.length; j++) {
+                if (arr[j] < arr[min]) {
+                    min = j;
+                }
+            }
+            temp = arr[min];
+            arr[min] = arr[i];
+            arr[i] = temp;
+
+        }
+
+        System.out.print("The sorted array : ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " , ");
+
+        }
+        System.out.println("");
+    }
+
+    static void reverse(char[] data) {
+        for (int i = data.length - 1; i >= 0; i--) {
+            System.out.print(data[i] + " ");
+        }
+    }
+
+    static void getmin(int[] arr) {
+        int mini = arr[0], idx = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if (mini > arr[i]) {
+                mini = arr[i];
+                idx = i;
+            }
+        }
+        System.out.print("the Smallest 3 numbers are : " + mini);
+        arr[idx] = arr[arr.length - 1];
+        mini = arr[0];
+        idx = 0;
+        for (int i = 1; i < arr.length - 1; i++) {
+            if (mini > arr[i]) {
+                mini = arr[i];
+                idx = i;
+            }
+        }
+        System.out.print(" , " + mini);
+        arr[idx] = arr[arr.length - 2];
+        mini = arr[0];
+        idx = 0;
+        for (int i = 1; i < arr.length - 2; i++) {
+            if (mini > arr[i]) {
+                mini = arr[i];
+            }
+        }
+        System.out.println(" , " + mini);
+    }
+
+    static void avg_of_array(int[] array, int size) {
+        Scanner input2 = new Scanner(System.in);
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+
+            count += array[i];
+        }
+        System.out.println("the avarage = " + new Double((count / size)));
+
+    }
+
+    public static void shift(int arr[], int size) {
+        int temp = 0;
+        for (int i = size - 1; i > 0; i--) {
+            temp = arr[i];
+            arr[i] = arr[i - 1];
+            arr[i - 1] = temp;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+
+    public static void Distinct(int[] arr) {
+        String temp = "";
+        String collect = "";
+        boolean flag = false;
+        int x;
+        for (int i = 0; i < arr.length; i++) {
+            collect += arr[i];
+            collect += " ";
+        }
+        ArrayList <String> values = new ArrayList<String>(Arrays.asList(collect.split(" ")));
+        ArrayList <String> add = new ArrayList<>();
+        for (int i = 0; i < values.size(); i++) {
+            x = add.indexOf(values.get(i));
+            if (x == -1) {
+                add.add(values.get(i));
+            }
+        }
+        for (int i = 0; i < add.size(); i++) {
+            System.out.print(add.get(i) + " ");
+        }
     }
 }
